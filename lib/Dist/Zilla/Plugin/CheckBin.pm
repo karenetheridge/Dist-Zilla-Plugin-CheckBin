@@ -57,7 +57,7 @@ __END__
 
 =head1 SYNOPSIS
 
-In your F<dist.ini>
+In your F<dist.ini>:
 
     [CheckBin]
     command = ls
