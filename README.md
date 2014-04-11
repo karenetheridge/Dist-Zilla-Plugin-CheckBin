@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::CheckBin - Require that our distribution has a particular c
 
 # VERSION
 
-version 0.001
+version 0.002
 
 # SYNOPSIS
 
