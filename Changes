@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - add a runtime prereq on Devel::CheckBin, so that the generated
+            Makefile.PL can be successfully executed during a 'dzil test' or
+            'dzil release'
 
 0.001     2014-04-11 02:36:16Z
           - Initial release.
