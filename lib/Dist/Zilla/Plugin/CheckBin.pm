@@ -86,7 +86,7 @@ L<CPAN Testers|cpantesters.org> machine will result in a NA result.
 
 =for Pod::Coverage mvp_multivalue_args register_prereqs setup_installer
 
-=head1 CONFIGURATION
+=head1 CONFIGURATION OPTIONS
 
 =head2 C<command>
 
