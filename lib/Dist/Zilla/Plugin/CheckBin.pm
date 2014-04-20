@@ -17,7 +17,7 @@ has command => (
     lazy => 1,
     default => sub { [] },
     traits => ['Array'],
-    handles => { command => 'elements' },
+    handles => { command => 'sort' },   # sorted elements
 );
 
 sub register_prereqs {
@@ -43,7 +43,7 @@ sub setup_installer {
     for my $mfpl (@mfpl)
     {
         my $content = "use Devel::CheckBin;\n"
-            . join(' ', map { 'check_bin(\'' . $_ . "\');\n" } $self->command)
+            . join('', map { 'check_bin(\'' . $_ . "\');\n" } $self->command)
             . "\n";
         $mfpl->content($content . $mfpl->content);
     }

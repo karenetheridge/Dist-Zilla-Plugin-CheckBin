@@ -13,7 +13,7 @@ my $tzil = Builder->from_config(
             path(qw(source dist.ini)) => simple_ini(
                 [ GatherDir => ],
                 [ MakeMaker => ],
-                [ 'CheckBin' => { command => ['ls'] } ],
+                [ 'CheckBin' => { command => [ qw(ls cd) ] } ],
             ),
             path(qw(source lib Foo.pm)) => "package Foo;\n1;\n",
         },
@@ -28,6 +28,16 @@ ok(-e $file, 'Makefile.PL created');
 my $content = $file->slurp_utf8;
 unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated file');
 
-like($content, qr/^use Devel::CheckBin;\n^check_bin\('ls'\);\n/m, 'code inserted into Makefile.PL');
+my $pattern = <<PATTERN;
+use Devel::CheckBin;
+check_bin('cd');
+check_bin('ls');
+PATTERN
+
+like(
+    $content,
+    qr/^\Q$pattern\E$/m,
+    'code inserted into Makefile.PL',
+);
 
 done_testing;
