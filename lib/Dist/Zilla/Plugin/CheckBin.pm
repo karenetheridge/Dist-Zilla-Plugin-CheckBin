@@ -42,10 +42,22 @@ sub setup_installer {
 
     for my $mfpl (@mfpl)
     {
-        my $content = "use Devel::CheckBin;\n"
+        my $orig_content = $mfpl->content;
+        $self->log_fatal('could not find position in ' . $mfpl->name . ' to modify!')
+            if not $orig_content =~ m/use strict;\nuse warnings;\n\n/g;
+
+        my $pos = pos($orig_content);
+
+        my $content =
+            "use Devel::CheckBin;\n"
             . join('', map { 'check_bin(\'' . $_ . "\');\n" } $self->command)
             . "\n";
-        $mfpl->content($content . $mfpl->content);
+
+        $mfpl->content(
+            substr($orig_content, 0, $pos)
+            . $content
+            . substr($orig_content, $pos)
+        );
     }
     return;
 }
