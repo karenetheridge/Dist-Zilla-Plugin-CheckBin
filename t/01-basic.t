@@ -14,6 +14,7 @@ my $tzil = Builder->from_config(
         add_files => {
             path(qw(source dist.ini)) => simple_ini(
                 [ GatherDir => ],
+                [ MetaConfig => ],
                 [ 'MakeMaker' => ],
                 [ 'CheckBin' => { command => [ qw(ls cd) ] } ],
             ),
@@ -62,8 +63,22 @@ cmp_deeply(
             },
             # build => ignore, # if using ModuleBuild
         },
+        x_Dist_Zilla => superhashof({
+            plugins => supersetof(
+                {
+                    class => 'Dist::Zilla::Plugin::CheckBin',
+                    config => {
+                        'Dist::Zilla::Plugin::CheckBin' => {
+                            command => [ qw(cd ls) ],   # for now, commands are sorted
+                        },
+                    },
+                    'name' => 'CheckBin',
+                    version => ignore,
+                },
+            ),
+        })
     }),
-    'prereqs are properly injected for the configure phase',
+    'prereqs are properly injected for the configure phase; config is properly included in metadata',
 ) or diag 'got distmeta: ', explain $tzil->distmeta;
 
 done_testing;

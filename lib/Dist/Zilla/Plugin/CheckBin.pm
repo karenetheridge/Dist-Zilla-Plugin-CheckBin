@@ -22,6 +22,18 @@ has command => (
     handles => { command => 'sort' },   # sorted elements
 );
 
+around dump_config => sub
+{
+    my ($orig, $self) = @_;
+    my $config = $self->$orig;
+
+    $config->{+__PACKAGE__} = {
+        command => [ $self->command ],
+    };
+
+    return $config;
+};
+
 sub register_prereqs {
     my $self = shift;
     $self->zilla->register_prereqs(
