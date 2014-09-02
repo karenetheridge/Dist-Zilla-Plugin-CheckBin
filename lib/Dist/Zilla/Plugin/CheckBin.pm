@@ -2,6 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::CheckBin;
 # ABSTRACT: Require that our distribution has a particular command available
+# KEYWORDS: distribution installation require binary program executable
 # vim: set ts=8 sw=4 tw=78 et :
 
 use Moose;
