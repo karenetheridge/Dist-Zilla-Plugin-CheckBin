@@ -8,6 +8,7 @@ use Moose;
 with 'Dist::Zilla::Role::InstallTool',
     'Dist::Zilla::Role::PrereqSource',
 ;
+use Scalar::Util 'blessed';
 use namespace::autoclean;
 
 sub mvp_multivalue_args { 'command' }
@@ -49,7 +50,8 @@ sub setup_installer {
         my $pos = pos($orig_content);
 
         my $content =
-            "use Devel::CheckBin;\n"
+            "# inserted by " . blessed($self) . ' ' . ($self->VERSION || '<self>') . "\n"
+            . "use Devel::CheckBin;\n"
             . join('', map { 'check_bin(\'' . $_ . "\');\n" } $self->command)
             . "\n";
 
