@@ -4,6 +4,8 @@ Revision history for {{$dist->name}}
           - now also testing interaction with [ModuleBuild],
             [ModuleBuildTiny], and [MakeMaker::Awesome]
           - Makefile.PL/Build.PL content inserted a little lower in the file
+          - now munging the file at the proper phase, if the plugin generating
+            the file also does so
 
 0.002     2014-04-11 03:50:21Z
           - add a runtime prereq on Devel::CheckBin, so that the generated
