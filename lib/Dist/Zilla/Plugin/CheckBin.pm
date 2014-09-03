@@ -34,7 +34,8 @@ around dump_config => sub
     return $config;
 };
 
-sub register_prereqs {
+sub register_prereqs
+{
     my $self = shift;
     $self->zilla->register_prereqs(
         {
@@ -47,7 +48,8 @@ sub register_prereqs {
 
 # XXX - this should really be a separate phase that runs after InstallTool -
 # until then, all we can do is die if we are run too soon
-sub setup_installer {
+sub setup_installer
+{
     my $self = shift;
 
     my @mfpl = grep { $_->name eq 'Makefile.PL' or $_->name eq 'Build.PL' } @{ $self->zilla->files };
