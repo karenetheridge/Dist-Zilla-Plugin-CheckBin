@@ -12,7 +12,7 @@ my $tzil = Builder->from_config(
         add_files => {
             path(qw(source dist.ini)) => simple_ini(
                 [ GatherDir => ],
-                [ MakeMaker => ],
+                [ 'MakeMaker' => ],
                 [ 'CheckBin' => { command => [ qw(ls cd) ] } ],
             ),
             path(qw(source lib Foo.pm)) => "package Foo;\n1;\n",
