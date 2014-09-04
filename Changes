@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.003     2014-09-04 06:31:38Z
           - now also testing interaction with [ModuleBuild],
             [ModuleBuildTiny], and [MakeMaker::Awesome]
           - Makefile.PL/Build.PL content inserted a little lower in the file

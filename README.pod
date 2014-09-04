@@ -1,0 +1,73 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Dist::Zilla::Plugin::CheckBin - Require that our distribution has a particular command available
+
+=head1 VERSION
+
+version 0.003
+
+=head1 SYNOPSIS
+
+In your F<dist.ini>:
+
+    [CheckBin]
+    command = ls
+
+=head1 DESCRIPTION
+
+L<Dist::Zilla::Plugin::CheckBin> is a L<Dist::Zilla> plugin that modifies the
+F<Makefile.PL> or F<Build.PL> in your distribution to contain a
+L<Devel::CheckBin> call, that asserts that a particular command is available.
+If it is not available, the program exits with a status of zero, which on a
+L<CPAN Testers|cpantesters.org> machine will result in a NA result.
+
+=for Pod::Coverage mvp_multivalue_args register_prereqs munge_files setup_installer
+
+=head1 CONFIGURATION OPTIONS
+
+=head2 C<command>
+
+Identifies the name of the command that is searched for. Can be used more than once.
+
+=head1 SUPPORT
+
+=for stopwords irc
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-CheckBin>
+(or L<bug-Dist-Zilla-Plugin-CheckBin@rt.cpan.org|mailto:bug-Dist-Zilla-Plugin-CheckBin@rt.cpan.org>).
+I am also usually active on irc, as 'ether' at C<irc.perl.org>.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<Devel::CheckBin>
+
+=item *
+
+L<Devel::AssertOS> and L<Dist::Zilla::Plugin::AssertOS>
+
+=item *
+
+L<Devel::CheckLib> and L<Dist::Zilla::Plugin::CheckLib>
+
+=back
+
+=head1 AUTHOR
+
+Karen Etheridge <ether@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2014 by Karen Etheridge.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
