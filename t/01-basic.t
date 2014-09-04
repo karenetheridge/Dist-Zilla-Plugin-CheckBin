@@ -4,6 +4,7 @@ use warnings FATAL => 'all';
 use Test::More;
 use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 use Test::DZil;
+use Test::Deep;
 use Path::Tiny;
 use Test::Fatal;
 
@@ -48,5 +49,21 @@ like(
     qr/^\Q$pattern\E$/m,
     'code inserted into Makefile.PL',
 );
+
+cmp_deeply(
+    $tzil->distmeta,
+    superhashof({
+        prereqs => {
+            configure => {
+                requires => {
+                    'Devel::CheckBin' => '0',
+                    'ExtUtils::MakeMaker' => ignore,    # populated by [MakeMaker],
+                },
+            },
+            # build => ignore, # if using ModuleBuild
+        },
+    }),
+    'prereqs are properly injected for the configure phase',
+) or diag 'got distmeta: ', explain $tzil->distmeta;
 
 done_testing;
