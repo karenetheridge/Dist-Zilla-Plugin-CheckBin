@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - now also testing interaction with [MakeMaker::Fallback],
+            [ModuleBuildTiny::Fallback] -- the latter requiring fixes
 
 0.003     2014-09-04 06:31:38Z
           - now also testing interaction with [ModuleBuild],
