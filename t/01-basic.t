@@ -59,7 +59,7 @@ cmp_deeply(
             configure => {
                 requires => {
                     'Devel::CheckBin' => '0',
-                    'ExtUtils::MakeMaker' => ignore,    # populated by [MakeMaker],
+                    'ExtUtils::MakeMaker' => ignore,    # populated by [MakeMaker]
                 },
             },
             # build => ignore, # if using ModuleBuild
@@ -73,7 +73,7 @@ cmp_deeply(
                             command => [ qw(cd ls) ],   # for now, commands are sorted
                         },
                     },
-                    'name' => 'CheckBin',
+                    name => 'CheckBin',
                     version => ignore,
                 },
             ),
