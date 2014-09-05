@@ -6,7 +6,7 @@ use Test::Requires 'Dist::Zilla::Plugin::MakeMaker::Awesome';
 use Path::Tiny;
 my $code = path('t', '01-basic.t')->slurp_utf8;
 
-$code =~ s/MakeMaker/MakeMaker::Awesome/;
+$code =~ s/'MakeMaker'/'MakeMaker::Awesome'/g;
 
 eval $code;
 die $@ if $@;
