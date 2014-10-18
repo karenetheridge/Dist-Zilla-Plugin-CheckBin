@@ -1,7 +1,7 @@
 use strict;
 use warnings FATAL => 'all';
 
-use Test::Requires 'Dist::Zilla::Plugin::MakeMaker::Awesome';
+use Test::Requires { 'Dist::Zilla::Plugin::MakeMaker::Awesome' => '0.13' };
 
 use Path::Tiny;
 my $code = path('t', '01-basic.t')->slurp_utf8;
