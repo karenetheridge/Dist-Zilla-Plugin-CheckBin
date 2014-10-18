@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.005     2014-10-18 04:41:51Z
           - bump optional dependency on [MakeMaker::Awesome] to avoid old bug
             with loaded modules
 
