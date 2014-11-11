@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - fix optional tests of interaction with
+            [ModuleBuildTiny::Fallback] that broke with its newest release
 
 0.005     2014-10-18 04:41:51Z
           - bump optional dependency on [MakeMaker::Awesome] to avoid old bug
