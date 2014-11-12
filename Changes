@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.007     2014-11-12 05:47:53Z
           - fix optional tests of interaction with [MakeMaker::Fallback] that
             broke with its newest release
           - avoid testing with [MakeMaker::Awesome] if its version is too old

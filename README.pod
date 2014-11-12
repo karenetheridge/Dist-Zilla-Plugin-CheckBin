@@ -8,7 +8,7 @@ Dist::Zilla::Plugin::CheckBin - Require that our distribution has a particular c
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
