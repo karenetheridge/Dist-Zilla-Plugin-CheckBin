@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - fix optional tests of interaction with [MakeMaker::Fallback] that
+            broke with its newest release
 
 0.006     2014-11-11 06:53:09Z
           - fix optional tests of interaction with
