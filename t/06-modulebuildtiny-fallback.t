@@ -1,5 +1,5 @@
 use strict;
-use warnings FATAL => 'all';
+use warnings;
 
 use Test::Requires { 'Dist::Zilla::Plugin::ModuleBuildTiny::Fallback' => '0.006' };
 
