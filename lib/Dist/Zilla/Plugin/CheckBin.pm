@@ -58,7 +58,7 @@ sub munge_files
     my @mfpl = grep { $_->name eq 'Makefile.PL' or $_->name eq 'Build.PL' } @{ $self->zilla->files };
     for my $mfpl (@mfpl)
     {
-        $self->log_debug('munging ' . $mfpl->name . ' in file gatherer phase');
+        $self->log_debug([ 'munging %s in file gatherer phase', $mfpl->name ]);
         $files{$mfpl->name} = $mfpl;
         $self->_munge_file($mfpl);
     }
@@ -78,7 +78,7 @@ sub setup_installer
     for my $mfpl (@mfpl)
     {
         next if exists $files{$mfpl->name};
-        $self->log_debug('munging ' . $mfpl->name . ' in setup_installer phase');
+        $self->log_debug([ 'munging %s in setup_installer phase', $mfpl->name ]);
         $self->_munge_file($mfpl);
     }
     return;
