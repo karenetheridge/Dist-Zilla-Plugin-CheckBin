@@ -37,7 +37,7 @@ ok(-e $file, 'Makefile.PL created');
 my $content = $file->slurp_utf8;
 unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated file');
 
-my $version = Dist::Zilla::Plugin::CheckBin->VERSION || '<self>';
+my $version = Dist::Zilla::Plugin::CheckBin->VERSION;
 
 my $pattern = <<PATTERN;
 use strict;
@@ -77,7 +77,7 @@ cmp_deeply(
                         },
                     },
                     name => 'CheckBin',
-                    version => ignore,
+                    version => Dist::Zilla::Plugin::CheckBin->VERSION,
                 },
             ),
         })

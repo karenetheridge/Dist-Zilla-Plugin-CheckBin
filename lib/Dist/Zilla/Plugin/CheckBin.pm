@@ -5,6 +5,8 @@ package Dist::Zilla::Plugin::CheckBin;
 # KEYWORDS: distribution installation require binary program executable
 # vim: set ts=8 sw=4 tw=78 et :
 
+our $VERSION = '0.008';
+
 use Moose;
 with
     'Dist::Zilla::Role::FileMunger',
@@ -93,7 +95,7 @@ sub _munge_file
     my $pos = pos($orig_content);
 
     my $content =
-        "# inserted by " . blessed($self) . ' ' . ($self->VERSION || '<self>') . "\n"
+        '# inserted by ' . blessed($self) . ' ' . $self->VERSION . "\n"
         . "use Devel::CheckBin;\n"
         . join('', map { 'check_bin(\'' . $_ . "\');\n" } $self->command)
         . "\n";
