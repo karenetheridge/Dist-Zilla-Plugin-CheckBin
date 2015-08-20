@@ -33,6 +33,7 @@ around dump_config => sub
 
     $config->{+__PACKAGE__} = {
         command => [ $self->command ],
+        blessed($self) ne __PACKAGE__ ? ( version => $VERSION ) : (),
     };
 
     return $config;
