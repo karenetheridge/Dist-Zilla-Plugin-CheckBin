@@ -35,7 +35,7 @@ my $file = $build_dir->child('Makefile.PL');
 ok(-e $file, 'Makefile.PL created');
 
 my $content = $file->slurp_utf8;
-unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated file');
+unlike($content, qr/[^\S\n]\n/, 'no trailing whitespace in generated file');
 
 my $version = Dist::Zilla::Plugin::CheckBin->VERSION;
 
