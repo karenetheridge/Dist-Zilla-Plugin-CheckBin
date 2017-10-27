@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::CheckBin;
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: Require that our distribution has a particular command available
 # KEYWORDS: distribution installation require binary program executable
-# vim: set ts=8 sts=4 sw=4 tw=115 et :
 
 our $VERSION = '0.008';
 
