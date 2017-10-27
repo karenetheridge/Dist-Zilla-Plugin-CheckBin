@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::Requires 'Dist::Zilla::Plugin::MakeMaker::Fallback';
+use Test::Needs 'Dist::Zilla::Plugin::MakeMaker::Fallback';
 
 use Path::Tiny;
 my $code = path('t', '01-basic.t')->slurp_utf8;
