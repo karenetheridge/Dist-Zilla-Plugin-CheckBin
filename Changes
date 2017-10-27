@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-Plugin-CheckBin
 
-{{$NEXT}}
+0.008     2017-10-27 05:53:53Z
           - fix test for latest [MakeMaker::Fallback], which has slight
             changes in injected configure-requires prereqs
 
