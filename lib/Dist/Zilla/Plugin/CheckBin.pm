@@ -5,7 +5,7 @@ package Dist::Zilla::Plugin::CheckBin;
 # ABSTRACT: Require that our distribution has a particular command available
 # KEYWORDS: distribution installation require binary program executable
 
-our $VERSION = '0.008';
+our $VERSION = '0.009';
 
 use Moose;
 with
