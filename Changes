@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-Plugin-CheckBin
 
 {{$NEXT}}
+          - fix test for latest [MakeMaker::Fallback], which has slight
+            changes in injected configure-requires prereqs
 
 0.007     2014-11-12 05:47:53Z
           - fix optional tests of interaction with [MakeMaker::Fallback] that
