@@ -56,7 +56,7 @@ sub munge_files
 {
     my $self = shift;
 
-    my @mfpl = grep { $_->name eq 'Makefile.PL' or $_->name eq 'Build.PL' } @{ $self->zilla->files };
+    my @mfpl = grep +($_->name eq 'Makefile.PL' or $_->name eq 'Build.PL'), @{ $self->zilla->files };
     for my $mfpl (@mfpl)
     {
         $self->log_debug([ 'munging %s in file gatherer phase', $mfpl->name ]);
@@ -72,7 +72,7 @@ sub setup_installer
 {
     my $self = shift;
 
-    my @mfpl = grep { $_->name eq 'Makefile.PL' or $_->name eq 'Build.PL' } @{ $self->zilla->files };
+    my @mfpl = grep +($_->name eq 'Makefile.PL' or $_->name eq 'Build.PL'), @{ $self->zilla->files };
 
     $self->log_fatal('No Makefile.PL or Build.PL was found. [CheckBin] should appear in dist.ini after [MakeMaker] or variant!') unless @mfpl;
 
@@ -98,7 +98,7 @@ sub _munge_file
     my $content =
         '# inserted by ' . blessed($self) . ' ' . $self->VERSION . "\n"
         . "use Devel::CheckBin;\n"
-        . join('', map { 'check_bin(\'' . $_ . "\');\n" } $self->command)
+        . join('', map +('check_bin(\'' . $_ . "\');\n"), $self->command)
         . "\n";
 
     $file->content(
